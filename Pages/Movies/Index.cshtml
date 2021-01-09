@@ -5,8 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<img src="~/images/movie.jpg" height="300" width="100%"/>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -42,37 +41,37 @@
             {
                 selectedRow = "table-success";
             }
-        <tr class="@selectedRow">
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Writer.WriterName)
-            </td>
-            <td>
-                @{
-                    foreach (var category in item.MovieGenres)
-                    {
-                         @category.Genre.GenreName <br />
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Director)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Writer.WriterName)
+                </td>
+                <td>
+                    @{
+                        foreach (var category in item.MovieGenres)
+                        {
+                            @category.Genre.GenreName <br />
+                        }
                     }
-                }
-            </td>
+                </td>
 
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
