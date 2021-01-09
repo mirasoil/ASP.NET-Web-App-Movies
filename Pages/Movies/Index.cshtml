@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Image)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Movie[0].Title)
             </th>
             <th>
@@ -41,37 +44,40 @@
             {
                 selectedRow = "table-success";
             }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Director)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Writer.WriterName)
-                </td>
-                <td>
-                    @{
-                        foreach (var category in item.MovieGenres)
-                        {
-                            @category.Genre.GenreName <br />
-                        }
+        <tr class="@selectedRow">
+            <td>
+                <img src="~/images/@Html.DisplayFor(modelItem => item.Image)" width="200" height="200"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Writer.WriterName)
+            </td>
+            <td>
+                @{
+                    foreach (var category in item.MovieGenres)
+                    {
+                        @category.Genre.GenreName <br />
                     }
-                </td>
+                }
+            </td>
 
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

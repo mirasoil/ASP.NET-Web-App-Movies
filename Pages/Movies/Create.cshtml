@@ -33,40 +33,45 @@
                 <input asp-for="Movie.ReleaseDate" class="form-control" />
                 <span asp-validation-for="Movie.ReleaseDate" class="textdanger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Movie.Image" class="control-label">Image</label>
+                <input asp-for="Movie.Image" type="file" />
+                <span asp-validation-for="Movie.Image" class="textdanger"></span>
+            </div>
             <label asp-for="Movie.WriterID" class="control-label">Writer Name</label>
             <select asp-for="Movie.WriterID" class="form-control" asp-items="ViewBag.WriterID">
             </select>
             <div class="form-group">
                 <span asp-validation-for="Movie.WriterID" class="text-danger"></span>
             </div>
-                <div class="form-group">
-                    <div class="table">
-                        <table>
-                            <tr>
-                                @{
-                                    int cnt = 0;
-                                    foreach (var cat in Model.AssignedGenreDataList)
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var cat in Model.AssignedGenreDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
                                     {
-                                        if (cnt++ % 3 == 0)
-                                        {
-                                        @:</tr><tr>
-                                        }
-                                        @:<td>
-                                            <input type="checkbox"
-                                                   name="selectedCategories"
-                                                   value="@cat.GenreID"
-                                                   @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
-                                             @cat.Name
-                                        @:</td>
+                                    @:</tr><tr>
                                     }
-                                @:</tr>
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedCategories"
+                                               value="@cat.GenreID"
+                                               @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                                        @cat.Name
+                                    @:</td>
                                 }
-                            </table>
-                        </div>
+                            @:</tr>
+                            }
+                        </table>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
             </form>
     </div>
 </div>

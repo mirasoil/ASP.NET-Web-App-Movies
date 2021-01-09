@@ -4,14 +4,16 @@ using Ispas_Teodora_Proiect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ispas_Teodora_Proiect.Migrations
 {
     [DbContext(typeof(Ispas_Teodora_ProiectContext))]
-    partial class Ispas_Teodora_ProiectContextModelSnapshot : ModelSnapshot
+    [Migration("20210109133728_Image")]
+    partial class Image
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

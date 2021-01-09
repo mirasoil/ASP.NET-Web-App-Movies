@@ -5,12 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controller\**" />
     <Compile Remove="NewFolder1\**" />
     <Compile Remove="NewFolder\**" />
+    <Content Remove="Controller\**" />
     <Content Remove="NewFolder1\**" />
     <Content Remove="NewFolder\**" />
+    <EmbeddedResource Remove="Controller\**" />
     <EmbeddedResource Remove="NewFolder1\**" />
     <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="Controller\**" />
     <None Remove="NewFolder1\**" />
     <None Remove="NewFolder\**" />
   </ItemGroup>

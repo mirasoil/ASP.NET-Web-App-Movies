@@ -53,7 +53,7 @@ namespace Ispas_Teodora_Proiect.Pages.Movies
             newMovie,
             "Movie",
             i => i.Title, i => i.Director,
-            i => i.Duration, i => i.ReleaseDate, i => i.WriterID))
+            i => i.Duration, i => i.ReleaseDate, i => i.WriterID, i => i.Image))
             {
                 _context.Movie.Add(newMovie);
                 await _context.SaveChangesAsync();
@@ -71,6 +71,6 @@ namespace Ispas_Teodora_Proiect.Pages.Movies
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-        }
+    }
     }
 }

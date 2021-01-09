@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ispas_Teodora_Proiect.Models
 {
@@ -31,5 +32,8 @@ namespace Ispas_Teodora_Proiect.Models
 
         [Display(Name = "Movie Genres")]
         public ICollection<MovieGenre> MovieGenres { get; set; }
+
+        public string Image { get; set; }
+
     }
 }
