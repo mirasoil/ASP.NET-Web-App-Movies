@@ -1,0 +1,80 @@
+﻿@page
+@model Ispas_Teodora_Proiect.Pages.Movies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Director" class="control-label"></label>
+                <input asp-for="Movie.Director" class="form-control" />
+                <span asp-validation-for="Movie.Director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Duration" class="control-label"></label>
+                <input asp-for="Movie.Duration" class="form-control" />
+                <span asp-validation-for="Movie.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.ReleaseDate" class="control-label"></label>
+                <input asp-for="Movie.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Movie.ReleaseDate" class="textdanger"></span>
+            </div>
+            <label asp-for="Movie.WriterID" class="control-label">Writer Name</label>
+            <select asp-for="Movie.WriterID" class="form-control" asp-items="ViewBag.WriterID">
+            </select>
+            <div class="form-group">
+                <span asp-validation-for="Movie.WriterID" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <div class="table">
+                        <table>
+                            <tr>
+                                @{
+                                    int cnt = 0;
+                                    foreach (var cat in Model.AssignedGenreDataList)
+                                    {
+                                        if (cnt++ % 3 == 0)
+                                        {
+                                        @:</tr><tr>
+                                        }
+                                        @:<td>
+                                            <input type="checkbox"
+                                                   name="selectedCourses"
+                                                   value="@cat.GenreID"
+                                                   @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                                            @cat.GenreID @: @cat.Name
+                                        @:</td>
+                                    }
+                                @:</tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
