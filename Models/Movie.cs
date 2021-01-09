@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ispas_Teodora_Proiect.Models
 {
@@ -23,13 +24,16 @@ namespace Ispas_Teodora_Proiect.Models
 
         [DataType(DataType.Date)]
 
-        [Display(Name = "Release Date")]
+        [Display(Name = "Release")]
         public DateTime ReleaseDate { get; set; }
 
         public int WriterID { get; set; }
         public Writer Writer { get; set; } //navigation property
 
-        [Display(Name = "Movie Genres")]
+        [Display(Name = "Genres")]
         public ICollection<MovieGenre> MovieGenres { get; set; }
+
+        public string Image { get; set; }
+
     }
 }

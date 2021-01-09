@@ -63,7 +63,7 @@ namespace Ispas_Teodora_Proiect.Pages.Movies
             movieToUpdate,
             "Movie",
             i => i.Title, i => i.Director,
-            i => i.Duration, i => i.ReleaseDate, i => i.Writer))
+            i => i.Duration, i => i.ReleaseDate, i => i.Writer, i => i.Image))
             {
                 UpdateMovieGenres(_context, selectedCategories, movieToUpdate);
                 await _context.SaveChangesAsync();
