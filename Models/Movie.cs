@@ -22,11 +22,14 @@ namespace Ispas_Teodora_Proiect.Models
         public int Duration { get; set; }
 
         [DataType(DataType.Date)]
+
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         public int WriterID { get; set; }
         public Writer Writer { get; set; } //navigation property
 
+        [Display(Name = "Movie Genres")]
         public ICollection<MovieGenre> MovieGenres { get; set; }
     }
 }
